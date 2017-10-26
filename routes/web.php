@@ -11,16 +11,33 @@
 |
 */
 
-Route::get('/', function () {
-    $name = 'Meilin';
-    $tasks = [
-        'go to the store',
-        'finish screencast',
-        'clean the house'
-    ];
-    return view('welcome', compact('name'),compact('tasks'));
 
+Route::get('/',function(){
+    return  view('welcome');
 });
+
+Route::get('/task', function () {
+
+    $tasks = DB::table('tasks')->get();
+    return view('task.index', compact('tasks'));
+});
+
+Route::get('/task/{task}', function($id){
+    $task = DB::table('tasks')->find($id);
+    return view('task/show', compact('task'));
+});
+
+// task page from professor
+
+//php artisan make:model Task -m
+//Route::post('/tasks', 'TasksController@store');
+//Route::get('/tasks','TasksController@index');
+//Route::get('/tasks/create', 'TasksController@create');
+//php artisan make:controller TasksController -r  <-makes resourcefull controller
+//Route::patch('/tasks/{task}/edit', 'TasksController@edit');
+//Route::delete('/tasks/{task}/delete', 'TasksController@destroy');
+//Route::get('/tasks/{task}', 'TasksController@show');
+
 
 Route::get('/about', function () {
 
