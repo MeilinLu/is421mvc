@@ -50,9 +50,15 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+
+    //public function show( $id)
+    public function show( Task $task)
     {
-        $task = Task::find($id);
+       // $task = Task::find($id);
+
+       // return $task; // Task find wild card
+
         return view('task.show', compact('task'));
     }
 

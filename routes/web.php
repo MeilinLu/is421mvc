@@ -15,7 +15,7 @@ use App\Task;
 
 Route::get('/task','TasksController@index');
 Route::get('/task/{task}','TasksController@show');
-
+//Route::get('/ports/{post}'); //Route Model Binding
 /*
 Route::get('/',function(){
     return  view('welcome');
