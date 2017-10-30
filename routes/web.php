@@ -13,17 +13,20 @@
 
 use App\Task;
 
+Route::get('/task','TasksController@index');
+Route::get('/task/{task}','TasksController@show');
+
+/*
 Route::get('/',function(){
     return  view('welcome');
 });
+*/
 
+/*
 Route::get('/task', function () {
 
    // $tasks = DB::table('tasks')->get();
     $tasks = App\Task::all();
-
-
-
     return view('task.index', compact('tasks'));
 });
 
@@ -33,15 +36,15 @@ Route::get('/task/{task}', function($id){
 
     //$task = App\Task::find($id);
 
-    $task = Task::find($id);
-
     // type "use App\Task;" at the top => import the Task class
     // directly use "$task = Task::find($id)";
 
 
-
+    $task = Task::find($id);
     return view('task/show', compact('task'));
 });
+*/
+
 
 // task page from professor
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Task;
+
 
 class TasksController extends Controller
 {
@@ -13,7 +15,8 @@ class TasksController extends Controller
      */
     public function index()
     {
-        //
+        $tasks = Task::all();
+        return view('task.index', compact('tasks'));
     }
 
     /**
@@ -23,8 +26,7 @@ class TasksController extends Controller
      */
     public function create()
     {
-        //
-        return view('tasks.create');
+        //return view('tasks.create');
     }
 
     /**
@@ -50,7 +52,8 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        //
+        $task = Task::find($id);
+        return view('task.show', compact('task'));
     }
 
     /**
@@ -78,10 +81,10 @@ class TasksController extends Controller
 
     public function update(Task $task)
     {
-        $task->body = request('body');
-        $task->completed = request('completed');
-        $task->save();
-        return redirect('/tasks');
+       // $task->body = request('body');
+       // $task->completed = request('completed');
+        //$task->save();
+        //return redirect('/tasks');
     }
 
 
