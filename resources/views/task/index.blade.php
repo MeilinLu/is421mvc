@@ -10,3 +10,8 @@
         </li>
     @endforeach
 @endsection
+
+@section('footer')
+    <script src="/js/file/js"></script>
+    footer
+@endsection

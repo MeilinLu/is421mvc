@@ -26,7 +26,10 @@ class TasksController extends Controller
      */
     public function create()
     {
-        //return view('tasks.create');
+        //return view('task.create');
+        $tasks = Task::all();
+        return view('task.create', compact('tasks'));
+
     }
 
     /**
@@ -41,7 +44,7 @@ class TasksController extends Controller
         $task->body = request('body');
         $task->completed = request('completed');
         $task->save();
-        return redirect('/tasks');
+        return redirect('/task');
     }
 
     /**
@@ -70,7 +73,7 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('task.edit');
     }
 
     /**
@@ -87,7 +90,7 @@ class TasksController extends Controller
 
     public function update(Task $task)
     {
-       // $task->body = request('body');
+        //$task->body = request('body');
        // $task->completed = request('completed');
         //$task->save();
         //return redirect('/tasks');

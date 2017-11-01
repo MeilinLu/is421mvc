@@ -11,16 +11,29 @@
 |
 */
 
+
+
 use App\Task;
 
-Route::get('/task','TasksController@index');
-Route::get('/task/{task}','TasksController@show');
-//Route::get('/ports/{post}'); //Route Model Binding
-/*
+
 Route::get('/',function(){
     return  view('welcome');
 });
-*/
+
+//Route::get('/task','TasksController@index');
+//Route::get('/task/{task}','TasksController@show');
+//Route::get('/task/create','TasksController@create');
+//Route::get('/task/{task}/update','TasksController@update');
+//Route::get('/task/{task}/edit','TasksController@edit');
+//Route::post('/task', 'TasksController@store');
+//Route::delete('/task/{task}/delete', 'TasksController@destroy');
+// On Terminal:
+// controller => PostsController
+// migration => Create_posts_table
+// Eloquent model => Post
+//OR
+// php artisan make:model Post -mc
+
 
 /*
 Route::get('/task', function () {
@@ -49,17 +62,12 @@ Route::get('/task/{task}', function($id){
 // task page from professor
 
 //php artisan make:model Task -m
-//Route::post('/tasks', 'TasksController@store');
-//Route::get('/tasks','TasksController@index');
-//Route::get('/tasks/create', 'TasksController@create');
+Route::post('/task', 'TasksController@store');
+Route::get('/task','TasksController@index');
+Route::get('/task/create', 'TasksController@create');
 //php artisan make:controller TasksController -r  <-makes resourcefull controller
-//Route::patch('/tasks/{task}/edit', 'TasksController@edit');
-//Route::delete('/tasks/{task}/delete', 'TasksController@destroy');
-//Route::get('/tasks/{task}', 'TasksController@show');
+Route::patch('/task/{task}/edit', 'TasksController@edit');
+Route::delete('/task/{task}/delete', 'TasksController@destroy');
+Route::get('/task/{task}', 'TasksController@show');
 
 
-Route::get('/about', function () {
-
-    return view('about');
-
-});
