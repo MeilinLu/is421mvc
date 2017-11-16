@@ -15,19 +15,29 @@
 
         <div class="form-group">
             <label for="taskStatus">Task Status</label>
-            <select class="form-control" id="taskStatus" name="completed" value="{{$task->completed}}">
-                <option value="1">Complete</option>
-                <option value="2">Incomplete</option>
-            </select>
+            @if($task->comleted == 0)
+                <select class="form-control" id="taskStatus" name="completed">
+                    <option value="0" selected>Incomplete</option>
+                    <option value="1">Complete</option>
+                </select>
+            @else
+                <select class="form-control" id="taskStatus" name="completed">
+                    <option value="0">Incomplete</option>
+                    <option value="1" selected>Complete</option>
+                </select>
+            @endif
         </div>
         <button type="submit" class="btn btn-primary">Save</button>
 
+
+
+
     </form>
+
     <p>
-
-
-
+    <br>
     Created at: {{date("F d, Y h:i:s", strtotime($task->created_at))}}
+    <br>
     Updated at: {{$task->updated_at}}
     </p>
 

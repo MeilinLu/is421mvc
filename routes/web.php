@@ -28,4 +28,9 @@ Route::patch('/task/{task}/edit', 'TasksController@update');
 Route::delete('/task/{task}/delete', 'TasksController@delete');
 Route::get('/task/{task}', 'TasksController@show');
 
+Route::post('/task/{task}/comments', 'CommentsController@create');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

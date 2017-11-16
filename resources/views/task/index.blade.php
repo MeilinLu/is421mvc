@@ -2,6 +2,10 @@
 @section("content")
     <!-------------This is for the task pages--------------------->
 
+    @if($tasks->isEmpty())
+
+        <a href="/is421mvc/public/task/create"><b>Create a Task</b></a>
+    @else
     <div class="page-header">
 
         <h1>Task List</h1>
@@ -216,8 +220,9 @@
         </div>
 
     </div><!--/row-->
-
+    @endif
 @endsection
+
 
 @section('footer')
     <script src="/js/file/js"></script>
