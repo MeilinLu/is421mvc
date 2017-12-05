@@ -12,4 +12,10 @@ class Comment extends Model
 
         return $this->belongsTo(task::class);
     }
+/*
+    function user(){
+        return $this->belongsTo(user::class);
+    }
+*/
+
 }

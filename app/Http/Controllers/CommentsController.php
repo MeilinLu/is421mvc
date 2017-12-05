@@ -10,10 +10,10 @@ class CommentsController extends Controller
 {   protected $guarded = array();
     public function create(Task $task) {
 
-        $task->addComment(request('body'));
+       // $task->addComment(request('body'));
 
-        //$userID = auth()->id();
-        //$task->addComment(request('body'), $userID);
+        $userID = auth()->id();
+        $task->addComment(request('body'), $userID);
         return back();
     }
 }
