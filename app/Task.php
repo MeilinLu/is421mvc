@@ -9,6 +9,10 @@ class Task extends Model
 
     protected $guarded = array();
 
+    public function user(){
+        return $this->hasMany(User::class);
+    }
+
     public function comments(){
 
         return $this->hasMany(Comment::class);
@@ -17,9 +21,9 @@ class Task extends Model
 
     }
 
-    public function addComment($body){
+    public function addComment($body, $user_id){
 
-        $this->comments()->Create(compact('body'));
+        $this->comments()->Create(compact('body', 'user_id'));
     }
 
 /*
