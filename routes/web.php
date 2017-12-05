@@ -30,3 +30,6 @@ Route::get('/task/{task}', 'TasksController@show');
 
 Route::post('/task/{task}/comments', 'CommentsController@create');
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

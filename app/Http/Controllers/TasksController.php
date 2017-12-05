@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use App\Task;
-use Illuminate\Support\Facades\Auth;
+//use Illuminate\Support\Facades\Auth;
 
 
 class TasksController extends Controller
@@ -15,14 +15,17 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /*
     public function __construct()
     {
         $this->middleware('auth')->except(['index','show']);
     }
+    */
 
     public function index()
     {
-        $tasks = Task::where('user_id','=',Auth::id())->get();
+        $tasks = Task::all();
+        //$tasks = Task::where('user_id','=',Auth::id())->get();
         return view('task.index', compact('tasks'));
     }
 
@@ -47,11 +50,14 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         $task = new Task;
+        /*
         $this->validate(request(),[
             'body' => 'required',
         ]);
         $task->user_id = auth()->id();
+        */
         $task->body = request('body');
+
         $task->completed = request('completed');
         $task->save();
         return redirect('/task');

@@ -8,11 +8,11 @@ class Task extends Model
 {
 
     protected $guarded = array();
-
+/*
     public function user(){
         return $this->hasMany(User::class);
     }
-
+*/
     public function comments(){
 
         return $this->hasMany(Comment::class);
@@ -20,12 +20,16 @@ class Task extends Model
         // if want to do the join, connect
 
     }
+    public function addComment($body){
 
-    public function addComment($body, $user_id){
-
-        $this->comments()->Create(compact('body', 'user_id'));
+        $this->comments()->Create(compact('body'));
     }
+        /*
+            public function addComment($body, $user_id){
 
+                $this->comments()->Create(compact('body', 'user_id'));
+            }
+        */
 /*
     public function scopeIncomplete($query)   //Task::incomplete()
     {
