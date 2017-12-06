@@ -8,7 +8,7 @@
     <br>
     <br>
     <div class="comments">
-        <form action="/is421mvc/public/task/{{$task->id}}/comments" method="post" class="col-sm-offset-8">
+        <form action="/is421mvc/public/task/{{$task->id}}/comments" method="post" class="col-8">
             {{ csrf_field() }}
             <div class="form-group">
                 <textarea name="body" placeholder="Your comment" class="form-control"></textarea>
